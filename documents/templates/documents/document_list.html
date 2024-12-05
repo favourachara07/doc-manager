@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document List</title>
+</head>
+<body>
+    <h1>Document List</h1>
+    <ul>
+        {% for document in documents %}
+            <li>
+                {{ document.title }} - <a href="{{ document.file.url }}">Download</a>
+                - <a href="{% url 'delete_document' document.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'upload_document' %}">Upload new document</a>
+</body>
+</html>
