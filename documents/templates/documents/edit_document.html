@@ -1,0 +1,14 @@
+<!-- templates/documents/edit_document.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Edit Document{% endblock %}
+
+{% block content %}
+<h1>Edit Document</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save changes</button>
+</form>
+{% endblock %}

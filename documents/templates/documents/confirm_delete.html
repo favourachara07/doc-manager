@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Delete Document</title>
-</head>
-<body>
-    <h1>Delete Document</h1>
-    <p>Are you sure you want to delete "{{ document.title }}"?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Yes, delete</button>
-        <a href="{% url 'document_list' %}">Cancel</a>
-    </form>
-</body>
-</html>
+<!-- templates/documents/confirm_delete.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Delete Document{% endblock %}
+
+{% block content %}
+<h1>Delete Document</h1>
+<p>Are you sure you want to delete "{{ document.title }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+    <a href="{% url 'document_list' %}">Cancel</a>
+</form>
+{% endblock %}

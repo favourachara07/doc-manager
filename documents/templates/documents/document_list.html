@@ -1,18 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Document List</title>
-</head>
-<body>
-    <h1>Document List</h1>
-    <ul>
-        {% for document in documents %}
-            <li>
-                {{ document.title }} - <a href="{{ document.file.url }}">Download</a>
-                - <a href="{% url 'delete_document' document.id %}">Delete</a>
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'upload_document' %}">Upload new document</a>
-</body>
-</html>
+<!-- templates/documents/document_list.html -->
+{% extends 'base.html' %}
+{% load document_tags %}
+
+{% block title %}Document List{% endblock %}
+
+{% block content %}
+<h1>Document List</h1>
+<ul>
+    {% for document in documents %}
+        <li>
+            {{ document.title }} - <a href="{% url 'download_document' document.id %}">Download</a>
+            - <a href="{% url 'delete_document' document.id %}">Delete</a>
+            {% if document.file.name|is_txt_file %}
+                - <a href="{% url 'edit_document' document.id %}">Edit</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

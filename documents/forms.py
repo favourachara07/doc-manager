@@ -7,4 +7,9 @@ from .models import Document
 class DocumentForm(forms.ModelForm):
     class Meta:
         model = Document
-        fields = ('title', 'file',)
+        fields = ('file',)
+
+class CreateDocumentForm(forms.ModelForm):
+    class Meta:
+        model = Document
+        fields = ('title', 'body')
