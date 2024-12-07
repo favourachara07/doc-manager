@@ -8,9 +8,9 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="{% url 'document_list' %}">Home</a>
-        <a href="{% url 'upload_document' %}">Upload Document</a>
-        <a href="{% url 'create_document' %}">Create Document</a>
+        <a href="{% url 'document_list' %}" class="{% if request.resolver_match.url_name == 'document_list' %}active{% endif %}">Home</a>
+        <a href="{% url 'upload_document' %}" class="button">Upload Document</a>
+        <a href="{% url 'create_document' %}" class="button">Create Document</a>
     </div>
     <div class="container">
         {% block content %}

@@ -9,11 +9,14 @@
 <ul>
     {% for document in documents %}
         <li>
-            {{ document.title }} - <a href="{% url 'download_document' document.id %}">Download</a>
-            - <a href="{% url 'delete_document' document.id %}">Delete</a>
-            {% if document.file.name|is_txt_file %}
-                - <a href="{% url 'edit_document' document.id %}">Edit</a>
-            {% endif %}
+            <span>{{ document.title }}</span>
+            <span>
+                <a href="{% url 'download_document' document.id %}">Download</a>
+                <a href="{% url 'delete_document' document.id %}">Delete</a>
+                {% if document.file.name|is_txt_file %}
+                    <a href="{% url 'edit_document' document.id %}">Edit</a>
+                {% endif %}
+            </span>
         </li>
     {% endfor %}
 </ul>
