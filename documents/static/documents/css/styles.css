@@ -124,32 +124,42 @@ button:hover {
   margin: 10px 0;
 }
 
+.no-documents {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 15px;
+  border: 1px solid #ffeeba;
+  border-radius: 5px;
+  text-align: center;
+  margin: 20px 0;
+}
+
 @media (max-width: 768px) {
   body {
-    width: 100%; /* Add this line */
-    max-width: 100%;
-    font-size: 14px;
+      max-width: 100%;
+      font-size: 14px; /* Adjust as needed */
   }
+
   .container {
-    width: 95%;
+      width: 95%;
   }
 
   .navbar {
-    text-align: left;
-    padding: 10px 20px;
+      text-align: left;
+      padding: 10px 20px;
   }
 
   .navbar a {
-    display: block;
-    margin: 5px 0;
+      display: block;
+      margin: 5px 0;
   }
 
   li {
-    flex-direction: column;
-    align-items: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
   }
 
   li span {
-    margin-bottom: 10px;
+      margin-bottom: 10px;
   }
 }

@@ -2,22 +2,26 @@
 {% extends 'base.html' %}
 {% load document_tags %}
 
-{% block title %}Document List{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block content %}
 <h1>Document List</h1>
-<ul>
-    {% for document in documents %}
-        <li>
-            <span>{{ document.title }}</span>
-            <span>
-                <a href="{% url 'download_document' document.id %}">Download</a>
-                <a href="{% url 'delete_document' document.id %}">Delete</a>
-                {% if document.file.name|is_txt_file %}
-                    <a href="{% url 'edit_document' document.id %}">Edit</a>
-                {% endif %}
-            </span>
-        </li>
-    {% endfor %}
-</ul>
+{% if documents %}
+    <ul>
+        {% for document in documents %}
+            <li>
+                <span>{{ document.title }}</span>
+                <span>
+                    <a href="{% url 'download_document' document.id %}">Download</a>
+                    <a href="{% url 'delete_document' document.id %}">Delete</a>
+                    {% if document.file.name|is_txt_file %}
+                        <a href="{% url 'edit_document' document.id %}">Edit</a>
+                    {% endif %}
+                </span>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p class="no-documents">No documents available. Create or upload your documents.</p>
+{% endif %}
 {% endblock %}
