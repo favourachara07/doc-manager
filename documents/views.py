@@ -5,7 +5,9 @@ from .models import Document
 from .forms import DocumentForm, CreateDocumentForm
 import os
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 
+# @login_required
 def document_list(request):
     documents = Document.objects.all()
     return render(request, 'documents/document_list.html', {'documents': documents})
